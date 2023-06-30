@@ -57,14 +57,16 @@ export const TokenGateProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [result, setResult] = useState(undefined)
-  const [error, setError] = useState<any>(undefined)
+  const [isLoading, setIsLoading] =
+    useState<TokenGateContextType['isLoading']>(false)
+  const [result, setResult] =
+    useState<TokenGateContextType['result']>(undefined)
+  const [error, setError] = useState<TokenGateContextType['error']>(undefined)
 
   const checkRoles = async (
     request: CheckRoleRequest,
     collablandApiKey: string,
-  ) => {
+  ): Promise<void> => {
     setIsLoading(true)
     setResult(undefined)
     setError(undefined)
@@ -72,7 +74,7 @@ export const TokenGateProvider = ({
     try {
       const body = JSON.stringify(request)
 
-      const requestOptions = {
+      const requestOptions: RequestInit = {
         method: 'POST',
         headers: {
           'x-api-key': collablandApiKey,
@@ -80,7 +82,7 @@ export const TokenGateProvider = ({
           'Content-Type': 'application/json',
         },
         body,
-        redirect: 'follow' as RequestRedirect,
+        redirect: 'follow',
       }
 
       const response = await fetch(
@@ -90,12 +92,14 @@ export const TokenGateProvider = ({
 
       const result = await response.json()
 
-      if (!response.ok)
-        throw new Error(result?.error?.message || 'Unknown error')
+      if (!response.ok) {
+        const errorMessage = result?.error?.message || 'Unknown error'
+        throw new Error(errorMessage)
+      }
 
       setResult(result)
-    } catch (e: any) {
-      setError(e.message)
+    } catch (error: any) {
+      setError(error.message)
     } finally {
       setIsLoading(false)
     }
