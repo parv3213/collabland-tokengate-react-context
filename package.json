@@ -1,6 +1,6 @@
 {
   "name": "collabland-tokengate-react-context",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.ts",
   "dependencies": {
     "react": "^18.2.0"
