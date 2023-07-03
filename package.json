@@ -7,7 +7,7 @@
   "author": "Parv G <parv3213@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/parv3213/collablank-tokengate-react-context.git"
+    "url": "git+https://github.com/parv3213/collabland-tokengate-react-context.git"
   },
   "files": [
     "dist",
