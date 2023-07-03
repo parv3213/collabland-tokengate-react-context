@@ -1,5 +1,5 @@
-'use client';
-import React, { createContext, useState } from 'react';
+"use client";
+import React, { createContext, useState } from "react";
 
 export type CheckRoleRequest = {
   account: string;
@@ -35,7 +35,10 @@ export type TokenGatingStatus = {
 };
 
 export type TokenGateContextType = {
-  checkRoles: (request: CheckRoleRequest, collablandApiKey: string) => Promise<void>;
+  checkRoles: (
+    request: CheckRoleRequest,
+    collablandApiKey: string
+  ) => Promise<void>;
   result?: {
     roles?: TokenGatingStatus[];
   };
@@ -50,12 +53,21 @@ export const TokenGateContext = createContext<TokenGateContextType>({
   error: undefined,
 });
 
-export const TokenGateProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isLoading, setIsLoading] = useState<TokenGateContextType['isLoading']>(false);
-  const [result, setResult] = useState<TokenGateContextType['result']>(undefined);
-  const [error, setError] = useState<TokenGateContextType['error']>(undefined);
+export const TokenGateProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [isLoading, setIsLoading] =
+    useState<TokenGateContextType["isLoading"]>(false);
+  const [result, setResult] =
+    useState<TokenGateContextType["result"]>(undefined);
+  const [error, setError] = useState<TokenGateContextType["error"]>(undefined);
 
-  const checkRoles = async (request: CheckRoleRequest, collablandApiKey: string): Promise<void> => {
+  const checkRoles = async (
+    request: CheckRoleRequest,
+    collablandApiKey: string
+  ): Promise<void> => {
     setIsLoading(true);
     setResult(undefined);
     setError(undefined);
@@ -64,22 +76,25 @@ export const TokenGateProvider = ({ children }: { children: React.ReactNode }) =
       const body = JSON.stringify(request);
 
       const requestOptions: RequestInit = {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'x-api-key': collablandApiKey,
-          accept: 'application/json',
-          'Content-Type': 'application/json',
+          "x-api-key": collablandApiKey,
+          accept: "application/json",
+          "Content-Type": "application/json",
         },
         body,
-        redirect: 'follow',
+        redirect: "follow",
       };
 
-      const response = await fetch('https://api.collab.land/access-control/check-roles', requestOptions);
+      const response = await fetch(
+        "https://api.collab.land/access-control/check-roles",
+        requestOptions
+      );
 
       const result = await response.json();
 
       if (!response.ok) {
-        const errorMessage = result?.error?.message || 'Unknown error';
+        const errorMessage = result?.error?.message || "Unknown error";
         throw new Error(errorMessage);
       }
 
