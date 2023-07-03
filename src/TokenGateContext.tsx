@@ -1,109 +1,110 @@
-import React, { createContext, useState } from 'react'
+"use client";
+import React, { createContext, useState } from "react";
 
 export type CheckRoleRequest = {
-  account: string
+  account: string;
   rules: {
-    id?: string
-    classifierGroup?: string
-    name?: string
-    description?: string
-    roleId?: string
-    minToken?: string
-    maxToken?: string
-    chainId?: number
-    tokenSymbol?: string
-    tokenId?: string
-    collectionName?: string
-    eventId?: string
-    contractAddress?: string
-    type?: string
-    scheme?: string
-    query?: string
+    id?: string;
+    classifierGroup?: string;
+    name?: string;
+    description?: string;
+    roleId?: string;
+    minToken?: string;
+    maxToken?: string;
+    chainId?: number;
+    tokenSymbol?: string;
+    tokenId?: string;
+    collectionName?: string;
+    eventId?: string;
+    contractAddress?: string;
+    type?: string;
+    scheme?: string;
+    query?: string;
     variables?: {
-      [additionalProperty: string]: any
-    }
-    asset?: string
-    requiresMetadata?: boolean
-    version?: string
-  }[]
-}
+      [additionalProperty: string]: any;
+    };
+    asset?: string;
+    requiresMetadata?: boolean;
+    version?: string;
+  }[];
+};
 
 export type TokenGatingStatus = {
-  id?: string
-  granted?: boolean
-}
+  id?: string;
+  granted?: boolean;
+};
 
 export type TokenGateContextType = {
   checkRoles: (
     request: CheckRoleRequest,
-    collablandApiKey: string,
-  ) => Promise<void>
+    collablandApiKey: string
+  ) => Promise<void>;
   result?: {
-    roles?: TokenGatingStatus[]
-  }
-  isLoading: boolean
-  error: any
-}
+    roles?: TokenGatingStatus[];
+  };
+  isLoading: boolean;
+  error: any;
+};
 
 export const TokenGateContext = createContext<TokenGateContextType>({
-  checkRoles: async () => {},
+  checkRoles: async () => undefined,
   result: undefined,
   isLoading: false,
   error: undefined,
-})
+});
 
 export const TokenGateProvider = ({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) => {
   const [isLoading, setIsLoading] =
-    useState<TokenGateContextType['isLoading']>(false)
+    useState<TokenGateContextType["isLoading"]>(false);
   const [result, setResult] =
-    useState<TokenGateContextType['result']>(undefined)
-  const [error, setError] = useState<TokenGateContextType['error']>(undefined)
+    useState<TokenGateContextType["result"]>(undefined);
+  const [error, setError] = useState<TokenGateContextType["error"]>(undefined);
 
   const checkRoles = async (
     request: CheckRoleRequest,
-    collablandApiKey: string,
+    collablandApiKey: string
   ): Promise<void> => {
-    setIsLoading(true)
-    setResult(undefined)
-    setError(undefined)
+    setIsLoading(true);
+    setResult(undefined);
+    setError(undefined);
 
     try {
-      const body = JSON.stringify(request)
+      const body = JSON.stringify(request);
 
       const requestOptions: RequestInit = {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'x-api-key': collablandApiKey,
-          accept: 'application/json',
-          'Content-Type': 'application/json',
+          "x-api-key": collablandApiKey,
+          accept: "application/json",
+          "Content-Type": "application/json",
         },
         body,
-        redirect: 'follow',
-      }
+        redirect: "follow",
+      };
 
       const response = await fetch(
-        'https://api.collab.land/access-control/check-roles',
-        requestOptions,
-      )
+        "https://api.collab.land/access-control/check-roles",
+        requestOptions
+      );
 
-      const result = await response.json()
+      const result = await response.json();
 
       if (!response.ok) {
-        const errorMessage = result?.error?.message || 'Unknown error'
-        throw new Error(errorMessage)
+        const errorMessage = result?.error?.message || "Unknown error";
+        throw new Error(errorMessage);
       }
 
-      setResult(result)
+      setResult(result);
     } catch (error: any) {
-      setError(error.message)
+      setError(error.message);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <TokenGateContext.Provider
@@ -116,5 +117,5 @@ export const TokenGateProvider = ({
     >
       {children}
     </TokenGateContext.Provider>
-  )
-}
+  );
+};

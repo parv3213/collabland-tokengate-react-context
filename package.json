@@ -1,11 +1,55 @@
 {
   "name": "collabland-tokengate-react-context",
-  "version": "1.0.3",
-  "main": "index.ts",
-  "dependencies": {
-    "react": "^18.2.0"
+  "version": "1.0.4",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "author": "Parv G <parv3213@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parv3213/collablank-tokengate-react-context.git"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "description": "A React Context Provider for Collab.Land's TokenGate",
+  "keywords": [
+    "react",
+    "typescript",
+    "collabland",
+    "TokenGate"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "prepare": "npm run build",
+    "prebuild": "npm run clean",
+    "prepublishOnly": "npm run prettier && npm run lint",
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\""
   },
   "devDependencies": {
-    "@types/react": "^18.0.37"
-  }
+    "@types/react": "^18.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "prettier": "^2.8.8",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "rimraf": "^5.0.1",
+    "tslib": "^2.6.0",
+    "typescript": "^4.7.3"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "dependencies": {}
 }
