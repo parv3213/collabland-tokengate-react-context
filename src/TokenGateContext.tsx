@@ -1,3 +1,4 @@
+'use client'
 import React, { createContext, useState } from 'react'
 
 export type CheckRoleRequest = {
@@ -46,7 +47,7 @@ export type TokenGateContextType = {
 }
 
 export const TokenGateContext = createContext<TokenGateContextType>({
-  checkRoles: async () => {},
+  checkRoles: async () => undefined,
   result: undefined,
   isLoading: false,
   error: undefined,
