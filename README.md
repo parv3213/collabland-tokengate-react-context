@@ -10,7 +10,7 @@
 Token Gate React Context is a package that provides a React context for token gating users based on specific rules. It utilizes the Collab Land APIs to implement this functionality.
 
 
-[**Live Demo**](https://parv3213.github.io/collabland-tokengate-react-context/)
+[**Live Demo**](https://collabland-tokengate-react-context.vercel.app/)
 
 ## Installation:
 You can install the package using npm:
