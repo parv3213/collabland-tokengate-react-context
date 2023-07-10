@@ -1,4 +1,4 @@
-import { HStack } from '@chakra-ui/react';
+import { Flex, HStack } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { useAccount } from 'wagmi';
 import Demo from '../Demo/Demo';
@@ -17,7 +17,13 @@ const Content = () => {
   }
 
   return (
-    <HStack className="py-3" justifyContent="center" maxW="1500px">
+    <Flex
+      direction={['column', 'column', 'column', 'row']}
+      className="py-3 mx-auto"
+      justifyContent="center"
+      alignItems="center"
+      maxW="1500px"
+    >
       <S.CollabMascote
         src="/collab.land-mascote.svg"
         width={554}
@@ -25,7 +31,7 @@ const Content = () => {
         alt="Collab.land mascot"
       />
       {isConnected ? <Demo /> : <NonLoggedInView />}
-    </HStack>
+    </Flex>
   );
 };
 

@@ -1,4 +1,5 @@
 import {
+  Flex,
   FormControl,
   FormLabel,
   HStack,
@@ -65,8 +66,11 @@ const Demo = () => {
   });
 
   return (
-    <HStack spacing="67px" alignItems="flex-start">
-      <VStack width="424px">
+    <Flex
+      direction={['column', 'column', 'column', 'row']}
+      alignItems="flex-start"
+    >
+      <VStack width="424px" className="p-4">
         <form onSubmit={formik.handleSubmit} className="w-full">
           <VStack spacing={4} align="flex-start">
             <FormControl isRequired>
@@ -150,6 +154,7 @@ const Demo = () => {
         alignItems="flex-start"
         width="296px"
         spacing="63px"
+        className="p-4"
       >
         <VStack alignItems="flex-start">
           <Link
@@ -202,7 +207,7 @@ const Demo = () => {
           </div>
         )}
       </VStack>
-    </HStack>
+    </Flex>
   );
 };
 

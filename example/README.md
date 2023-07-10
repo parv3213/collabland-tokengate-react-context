@@ -8,11 +8,11 @@ To run the project locally, follow these steps:
 
 1. Clone the repository to your local machine:
 
-git clone https://github.com/parv3213/collabland-tokengate-react-context.git
+git clone https://github.com/your-username/collab-token-gated-page-demo.git
 
 2. Navigate to the project's directory:
 
-cd collabland-tokengate-react-context/example
+cd collab-token-gated-page-demo
 
 3. Install the required dependencies using npm:
 

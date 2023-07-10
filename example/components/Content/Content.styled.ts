@@ -6,16 +6,22 @@ export const Container = styled.div`
 `;
 
 export const CollabMascote = styled(Image)`
-  animation: bounce 10s infinite;
+  animation: bounce 7s infinite;
+
   @keyframes bounce {
     0% {
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-30px);
+      transform: translateY(-75px);
     }
     100% {
       transform: translateY(0);
     }
+  }
+
+  @media (max-width: 1025px) {
+    width: 350px;
+    height: 350px;
   }
 `;

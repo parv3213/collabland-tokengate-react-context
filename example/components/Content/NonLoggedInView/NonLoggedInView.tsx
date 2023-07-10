@@ -1,4 +1,4 @@
-import { Button, Link, Text, VStack } from '@chakra-ui/react';
+import { Button, Flex, Link, Text, VStack } from '@chakra-ui/react';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 // import Link from 'next/link';
 
@@ -6,7 +6,7 @@ const NonLoggedInView = () => {
   const { openConnectModal } = useConnectModal();
 
   return (
-    <VStack alignItems="flex-start" spacing="24px" maxW="424px">
+    <Flex direction={'column'} alignItems="flex-start" maxW="424px">
       <Text fontSize="3xl">Please connect your wallet</Text>
       <Text fontSize="xl">
         Collab.Land offers a token gating feature that allows you to restrict
@@ -18,7 +18,7 @@ const NonLoggedInView = () => {
         users based on specific rules. It utilizes the Collab.Land APIs to
         implement this functionality
       </Text>
-      <VStack alignItems="flex-start">
+      <VStack alignItems="flex-start" className="mt-4">
         <Link
           className="underline"
           href="https://www.npmjs.com/package/collabland-tokengate-react-context"
@@ -37,7 +37,7 @@ const NonLoggedInView = () => {
       <Button variant="link" onClick={openConnectModal} color="general.link">
         Connect your wallet to view the demo
       </Button>
-    </VStack>
+    </Flex>
   );
 };
 
