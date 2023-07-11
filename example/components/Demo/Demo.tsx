@@ -200,7 +200,7 @@ const Demo = () => {
         {result?.roles?.[0] && (
           <div>
             <Text
-              fontSize="2xl"
+              fontSize="28px"
               mb={3}
               color={
                 result.roles[0].granted ? 'general.success' : 'general.error'
