@@ -128,7 +128,7 @@ const Demo = () => {
               <CustomInput
                 id="minToken"
                 name="minToken"
-                type="number"
+                type="string"
                 placeholder="Enter Minimum Tokens in Wallet"
                 onChange={formik.handleChange}
                 value={formik.values.minToken}
