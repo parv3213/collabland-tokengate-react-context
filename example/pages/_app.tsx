@@ -13,6 +13,7 @@ import {
   optimism,
   polygon,
   zora,
+  gnosis,
 } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
@@ -28,6 +29,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
     optimism,
     arbitrum,
     zora,
+    gnosis,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
   ],
   [publicProvider()]
