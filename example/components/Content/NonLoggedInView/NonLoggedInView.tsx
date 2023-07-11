@@ -15,7 +15,7 @@ const NonLoggedInView = () => {
       </Text>
       <Text fontSize="xl">
         <Link
-          className="italic bg-gray-700 px-2 py-1 rounded no-underline hover:no-underline"
+          className="underline"
           href="https://www.npmjs.com/package/collabland-tokengate-react-context"
           target="_blank"
         >
