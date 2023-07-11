@@ -19,7 +19,7 @@ const Content = () => {
   return (
     <Flex
       direction={['column', 'column', 'column', 'row']}
-      className="py-3 mx-auto"
+      className="pt-24 pb-3 mx-auto"
       justifyContent="center"
       alignItems="center"
       maxW="1500px"
