@@ -84,7 +84,9 @@ const Demo = () => {
         <form onSubmit={formik.handleSubmit} className="w-full">
           <VStack spacing={4} align="flex-start">
             <FormControl isRequired>
-              <FormLabel htmlFor="address">Wallet Address</FormLabel>
+              <FormLabel htmlFor="address" fontSize={'14px'}>
+                Wallet Address
+              </FormLabel>
               <CustomInput
                 id="address"
                 name="address"
@@ -96,7 +98,9 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="chainId">Chain Id</FormLabel>
+              <FormLabel htmlFor="chainId" fontSize={'14px'}>
+                Chain Id
+              </FormLabel>
               <CustomInput
                 id="chainId"
                 name="chainId"
@@ -108,7 +112,9 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="type">Token Type</FormLabel>
+              <FormLabel htmlFor="type" fontSize={'14px'}>
+                Token Type
+              </FormLabel>
               <CustomInput
                 id="type"
                 name="type"
@@ -120,7 +126,7 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="contractAddress">
+              <FormLabel htmlFor="contractAddress" fontSize={'14px'}>
                 Token Contract Address
               </FormLabel>
               <CustomInput
@@ -134,7 +140,9 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="minToken">Minimum Tokens in Wallet</FormLabel>
+              <FormLabel htmlFor="minToken" fontSize={'14px'}>
+                Minimum Tokens in Wallet
+              </FormLabel>
               <CustomInput
                 id="minToken"
                 name="minToken"
