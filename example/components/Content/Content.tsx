@@ -26,8 +26,8 @@ const Content = () => {
     >
       <S.CollabMascote
         src="/collab.land-mascote.svg"
-        width={554}
-        height={677}
+        width={454}
+        height={577}
         alt="Collab.land mascot"
       />
       {isConnected ? <Demo /> : <NonLoggedInView />}
