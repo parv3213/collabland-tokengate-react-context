@@ -70,7 +70,17 @@ const Demo = () => {
       direction={['column', 'column', 'column', 'row']}
       alignItems="flex-start"
     >
-      <VStack width="424px" className="p-4">
+      <VStack width="424px" className="p-4" gap={4}>
+        <VStack alignItems="flex-start">
+          <Text fontSize={'3xl'} fontWeight={'light'} color={'#3898FF'}>
+            Wallet Connected
+          </Text>
+          <Text>
+            The form is populated with data from your wallet. Keep, or adjust
+            the inputs, then click 'Check Role' to validate your assets and
+            obtain access.
+          </Text>
+        </VStack>
         <form onSubmit={formik.handleSubmit} className="w-full">
           <VStack spacing={4} align="flex-start">
             <FormControl isRequired>
