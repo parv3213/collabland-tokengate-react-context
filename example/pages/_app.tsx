@@ -1,24 +1,25 @@
+import { CacheProvider } from '@chakra-ui/next-js';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import {
+  RainbowKitProvider,
   darkTheme,
   getDefaultWallets,
-  RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
+import { TokenGateProvider } from 'collabland-tokengate-react-context';
 import type { AppProps } from 'next/app';
-import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import { M_PLUS_1_Code, Open_Sans } from 'next/font/google';
+import { WagmiConfig, configureChains, createConfig } from 'wagmi';
 import {
   arbitrum,
+  gnosis,
   goerli,
   mainnet,
   optimism,
   polygon,
   zora,
-  gnosis,
 } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import { TokenGateProvider } from 'collabland-tokengate-react-context';
-import { CacheProvider } from '@chakra-ui/next-js';
 import '../styles/globals.css';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
@@ -67,7 +68,13 @@ const styles = {
   }),
 };
 
-export const theme = extendTheme({ colors, styles });
+const openSans = Open_Sans({ subsets: ['latin'] });
+const mPlus1Code = M_PLUS_1_Code({ subsets: ['latin'] });
+const fonts = {
+  openSans: openSans.style.fontFamily,
+  mPlus1Code: mPlus1Code.style.fontFamily,
+};
+export const theme = extendTheme({ colors, styles, fonts });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -76,7 +83,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains} theme={darkTheme()}>
             <TokenGateProvider>
-              <Component {...pageProps} />
+              <div className={openSans.className}>
+                <Component {...pageProps} />
+              </div>
             </TokenGateProvider>
           </RainbowKitProvider>
         </WagmiConfig>

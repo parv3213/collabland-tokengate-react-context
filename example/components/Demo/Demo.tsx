@@ -209,7 +209,13 @@ const Demo = () => {
               Access {result.roles[0].granted ? 'Granted' : 'Denied'}
             </Text>
             <Text>Data sent:</Text>
-            <pre className="p-4 ">
+            <pre
+              style={{
+                fontFamily: 'mPlus1Code',
+                fontWeight: '400',
+                letterSpacing: '0.5px',
+              }}
+            >
               {JSON.stringify(
                 {
                   ...formik.values,
@@ -219,7 +225,7 @@ const Demo = () => {
                   ),
                 },
                 undefined,
-                2
+                4
               )}
             </pre>
           </div>
