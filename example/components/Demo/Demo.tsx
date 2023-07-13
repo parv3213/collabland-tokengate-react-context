@@ -69,6 +69,7 @@ const Demo = () => {
     <Flex
       direction={['column', 'column', 'column', 'row']}
       alignItems="flex-start"
+      gap={10}
     >
       <VStack width="424px" className="p-4" gap={4}>
         <VStack alignItems="flex-start">
@@ -174,7 +175,7 @@ const Demo = () => {
         spacing="63px"
         className="p-4"
       >
-        <VStack alignItems="flex-start">
+        <VStack alignItems="flex-start" gap={0}>
           <Link
             className="underline"
             href="https://www.npmjs.com/package/collabland-tokengate-react-context"
@@ -208,12 +209,14 @@ const Demo = () => {
             >
               Access {result.roles[0].granted ? 'Granted' : 'Denied'}
             </Text>
-            <Text>Data sent:</Text>
+
+            <Text fontFamily={'mPlus1Code'} fontWeight={'400'}>
+              Data sent:
+            </Text>
             <pre
               style={{
                 fontFamily: 'mPlus1Code',
                 fontWeight: '400',
-                letterSpacing: '0.5px',
               }}
             >
               {JSON.stringify(

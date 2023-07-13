@@ -15,7 +15,7 @@ const Input: React.FC<InputProps> = (p) => {
       _disabled={{ bg: '#000', borderColor: '#3898FF' }}
       _placeholder={{ color: '#2A6462', fontFamily: 'mPlus1Code' }}
       fontFamily={'mPlus1Code'}
-      fontWeight={'600'}
+      fontWeight={'400'}
     />
   );
 };
