@@ -25,7 +25,7 @@ const NonLoggedInView = () => {
         on specific rules. It utilizes the Collab.Land APIs to implement this
         functionality
       </Text>
-      <VStack alignItems="flex-start">
+      <VStack alignItems="flex-start" gap={0}>
         <Link
           className="underline"
           href="https://www.npmjs.com/package/collabland-tokengate-react-context"

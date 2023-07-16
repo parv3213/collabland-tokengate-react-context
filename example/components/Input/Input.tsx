@@ -13,7 +13,9 @@ const Input: React.FC<InputProps> = (p) => {
       _hover={{ bg: '#000', borderColor: '#3898FF' }}
       _focus={{ bg: '#000', borderColor: '#3898FF' }}
       _disabled={{ bg: '#000', borderColor: '#3898FF' }}
-      _placeholder={{ color: '#2A6462' }}
+      _placeholder={{ color: '#2A6462', fontFamily: 'mPlus1Code' }}
+      fontFamily={'mPlus1Code'}
+      fontWeight={'400'}
     />
   );
 };

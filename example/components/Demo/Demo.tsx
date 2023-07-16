@@ -69,6 +69,7 @@ const Demo = () => {
     <Flex
       direction={['column', 'column', 'column', 'row']}
       alignItems="flex-start"
+      gap={10}
     >
       <VStack width="424px" className="p-4" gap={4}>
         <VStack alignItems="flex-start">
@@ -84,7 +85,9 @@ const Demo = () => {
         <form onSubmit={formik.handleSubmit} className="w-full">
           <VStack spacing={4} align="flex-start">
             <FormControl isRequired>
-              <FormLabel htmlFor="address">Wallet Address</FormLabel>
+              <FormLabel htmlFor="address" fontSize={'14px'}>
+                Wallet Address
+              </FormLabel>
               <CustomInput
                 id="address"
                 name="address"
@@ -96,7 +99,9 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="chainId">Chain Id</FormLabel>
+              <FormLabel htmlFor="chainId" fontSize={'14px'}>
+                Chain Id
+              </FormLabel>
               <CustomInput
                 id="chainId"
                 name="chainId"
@@ -108,7 +113,9 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="type">Token Type</FormLabel>
+              <FormLabel htmlFor="type" fontSize={'14px'}>
+                Token Type
+              </FormLabel>
               <CustomInput
                 id="type"
                 name="type"
@@ -120,7 +127,7 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="contractAddress">
+              <FormLabel htmlFor="contractAddress" fontSize={'14px'}>
                 Token Contract Address
               </FormLabel>
               <CustomInput
@@ -134,7 +141,9 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="minToken">Minimum Tokens in Wallet</FormLabel>
+              <FormLabel htmlFor="minToken" fontSize={'14px'}>
+                Minimum Tokens in Wallet
+              </FormLabel>
               <CustomInput
                 id="minToken"
                 name="minToken"
@@ -166,7 +175,7 @@ const Demo = () => {
         spacing="63px"
         className="p-4"
       >
-        <VStack alignItems="flex-start">
+        <VStack alignItems="flex-start" gap={0}>
           <Link
             className="underline"
             href="https://www.npmjs.com/package/collabland-tokengate-react-context"
@@ -192,7 +201,7 @@ const Demo = () => {
         {result?.roles?.[0] && (
           <div>
             <Text
-              fontSize="2xl"
+              fontSize="28px"
               mb={3}
               color={
                 result.roles[0].granted ? 'general.success' : 'general.error'
@@ -200,8 +209,16 @@ const Demo = () => {
             >
               Access {result.roles[0].granted ? 'Granted' : 'Denied'}
             </Text>
-            <Text>Data sent:</Text>
-            <pre className="p-4 backdrop-blur rounded-lg">
+
+            <Text fontFamily={'mPlus1Code'} fontWeight={'400'}>
+              Data sent:
+            </Text>
+            <pre
+              style={{
+                fontFamily: 'mPlus1Code',
+                fontWeight: '400',
+              }}
+            >
               {JSON.stringify(
                 {
                   ...formik.values,
@@ -211,7 +228,7 @@ const Demo = () => {
                   ),
                 },
                 undefined,
-                2
+                4
               )}
             </pre>
           </div>
