@@ -15,7 +15,7 @@ Token Gate React Context is a package that provides a React context for token ga
 ## Installation:
 You can install the package using npm:
 ```bash
-npm install collabland-tokengate-react-context --save-dev
+npm install collabland-tokengate-react-context
 ```
 
 or
