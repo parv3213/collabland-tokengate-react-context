@@ -20,7 +20,7 @@ const defaultRules = {
   type: 'ERC20',
   chainId: 1, // Ethereum
   minToken: '1',
-  contractAddress: '0xdac17f958d2ee523a2206206994597c13d831ec7', // Token Tether USD
+  contractAddress: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', // Token USD Coin USDC
   roleId: '001',
 };
 
@@ -69,23 +69,22 @@ const Demo = () => {
     <Flex
       direction={['column', 'column', 'column', 'row']}
       alignItems="flex-start"
-      gap={10}
+      gap={20}
     >
-      <VStack width="424px" className="p-4" gap={4}>
+      <VStack width="424px">
         <VStack alignItems="flex-start">
-          <Text fontSize={'3xl'} fontWeight={'light'} color={'#3898FF'}>
+          <Text fontSize={'3xl'} fontWeight={'normal'} color={'#3898FF'}>
             Wallet Connected
           </Text>
-          <Text>
-            The form is populated with data from your wallet. Keep, or adjust
-            the inputs, then click 'Check Role' to validate your assets and
-            obtain access.
+          <Text fontSize="md">
+           The form is populated with your wallet address, and data to check the wallet for 1 USDC on Ethereum.
+            Keep, or adjust the inputs, then click 'Check Role' to validate your assets and obtain access.
           </Text>
         </VStack>
         <form onSubmit={formik.handleSubmit} className="w-full">
           <VStack spacing={4} align="flex-start">
             <FormControl isRequired>
-              <FormLabel htmlFor="address" fontSize={'14px'}>
+              <FormLabel htmlFor="address" fontSize="sm">
                 Wallet Address
               </FormLabel>
               <CustomInput
@@ -99,7 +98,7 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="chainId" fontSize={'14px'}>
+              <FormLabel htmlFor="chainId" fontSize="sm">
                 Chain Id
               </FormLabel>
               <CustomInput
@@ -113,7 +112,7 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="type" fontSize={'14px'}>
+              <FormLabel htmlFor="type" fontSize="sm">
                 Token Type
               </FormLabel>
               <CustomInput
@@ -127,7 +126,7 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="contractAddress" fontSize={'14px'}>
+              <FormLabel htmlFor="contractAddress" fontSize="sm">
                 Token Contract Address
               </FormLabel>
               <CustomInput
@@ -141,7 +140,7 @@ const Demo = () => {
                 variant="filled"
                 marginBottom={4}
               />
-              <FormLabel htmlFor="minToken" fontSize={'14px'}>
+              <FormLabel htmlFor="minToken" fontSize="sm">
                 Minimum Tokens in Wallet
               </FormLabel>
               <CustomInput
@@ -172,10 +171,10 @@ const Demo = () => {
         align="flex-start"
         alignItems="flex-start"
         width="296px"
-        spacing="63px"
-        className="p-4"
+        spacing="50px"
+        paddingTop="52px"
       >
-        <VStack alignItems="flex-start" gap={0}>
+        <VStack alignItems="flex-start" gap={0} fontSize="md">
           <Link
             className="underline"
             href="https://www.npmjs.com/package/collabland-tokengate-react-context"
@@ -201,7 +200,7 @@ const Demo = () => {
         {result?.roles?.[0] && (
           <div>
             <Text
-              fontSize="28px"
+              fontSize="3xl"
               mb={3}
               color={
                 result.roles[0].granted ? 'general.success' : 'general.error'
@@ -210,14 +209,14 @@ const Demo = () => {
               Access {result.roles[0].granted ? 'Granted' : 'Denied'}
             </Text>
 
-            <Text fontFamily={'mPlus1Code'} fontWeight={'400'}>
+            <Text>
               Data sent:
             </Text>
             <pre
-              style={{
-                fontFamily: 'mPlus1Code',
-                fontWeight: '400',
-              }}
+              // style={{
+              //   fontFamily: 'mPlus1Code',
+              //   fontWeight: '400',
+              // }}
             >
               {JSON.stringify(
                 {

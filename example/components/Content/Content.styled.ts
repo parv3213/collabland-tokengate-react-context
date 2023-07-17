@@ -13,7 +13,7 @@ export const CollabMascote = styled(Image)`
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-75px);
+      transform: translateY(-50px);
     }
     100% {
       transform: translateY(0);
