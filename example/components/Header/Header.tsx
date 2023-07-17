@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="flex justify-between py-6">
       <Link  rel="preconnect" href="https://fonts.googleapis.com"></Link>
-      <Link  rel="preconnect" href="https://fonts.gstatic.com" crossorigin></Link>
+      <Link  rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></Link>
       <Link  href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Oxygen:wght@300;400&display=swap" rel="stylesheet"></Link>
 
       <Link href="/">
