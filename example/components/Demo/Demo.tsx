@@ -71,13 +71,15 @@ const Demo = () => {
       alignItems="flex-start"
       gap={20}
     >
-      <VStack width="424px">
+      <VStack width="424px" ml="40px">
         <VStack alignItems="flex-start">
           <Text fontSize={'3xl'} fontWeight={'normal'} color={'#3898FF'}>
             Wallet Connected
           </Text>
           <Text fontSize="md">
-           The form is populated with your wallet address, and data to check the wallet for 1 USDC on Ethereum.
+            The form is populated with your wallet address, and data to check the wallet for 1 USDC on Ethereum.<br/>
+          </Text>
+          <Text fontSize="md" pb="4">
             Keep, or adjust the inputs, then click 'Check Role' to validate your assets and obtain access.
           </Text>
         </VStack>
@@ -171,7 +173,7 @@ const Demo = () => {
         align="flex-start"
         alignItems="flex-start"
         width="296px"
-        spacing="50px"
+        spacing="72px"
         paddingTop="52px"
       >
         <VStack alignItems="flex-start" gap={0} fontSize="md">

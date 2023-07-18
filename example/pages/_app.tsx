@@ -8,7 +8,7 @@ import {
 import '@rainbow-me/rainbowkit/styles.css';
 import { TokenGateProvider } from 'collabland-tokengate-react-context';
 import type { AppProps } from 'next/app';
-// import { M_PLUS_1_Code, Open_Sans } from 'next/font/google';
+import { M_PLUS_1_Code, Oxygen, Inconsolata } from '@next/font/google';
 import { WagmiConfig, configureChains, createConfig } from 'wagmi';
 import {
   arbitrum,
@@ -64,25 +64,32 @@ const styles = {
     body: {
       bg: '#000',
       color: '#FFFFFF',
-      fontFamily: 'Oxygen, Roboto, Open Sans, sans-serif',
     },
-    'input': {
-      fontFamily: 'Inconsolata, monospace',
-    },
-    'pre': {
-      fontFamily: 'Inconsolata, monospace',
-    }
   }),
 };
 
+const oxygen = Oxygen({ 
+  subsets: ['latin'], 
+  weight: '400',
 
-// const openSans = Open_Sans({ subsets: ['latin'] });
-// const mPlus1Code = M_PLUS_1_Code({ subsets: ['latin'] });
-// const fonts = {
-//   openSans: openSans.style.fontFamily,
-//   mPlus1Code: mPlus1Code.style.fontFamily,
-// };
-export const theme = extendTheme({ colors, styles});
+});
+const mPlus1Code = M_PLUS_1_Code({ 
+  subsets: ['latin'], 
+  weight: '400',
+});
+const inconsolata = Inconsolata({ 
+  subsets: ['latin'], 
+  weight: '400',
+});
+
+
+const fonts = {
+  oxygen: oxygen.style.fontFamily,
+  mPlus1Code: mPlus1Code.style.fontFamily,
+  inconsolata: inconsolata.style.fontFamily,
+};
+
+export const theme = extendTheme({ colors, styles, fonts });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -91,9 +98,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains} theme={darkTheme()}>
             <TokenGateProvider>
-              {/* <div className={openSans.className}> */}
+              <div className={oxygen.className}>
                 <Component {...pageProps} />
-              {/* </div> */}
+              </div>
             </TokenGateProvider>
           </RainbowKitProvider>
         </WagmiConfig>
