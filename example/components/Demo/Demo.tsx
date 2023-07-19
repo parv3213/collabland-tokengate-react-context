@@ -77,10 +77,13 @@ const Demo = () => {
             Wallet Connected
           </Text>
           <Text fontSize="md">
-            The form is populated with your wallet address, and data to check the wallet for 1 USDC on Ethereum.<br/>
+            The form is populated with your wallet address, and data to check
+            the wallet for 1 USDC on Ethereum.
+            <br />
           </Text>
           <Text fontSize="md" pb="4">
-            Keep, or adjust the inputs, then click 'Check Role' to validate your assets and obtain access.
+            Keep, or adjust the inputs, then click 'Check Role' to validate your
+            assets and obtain access.
           </Text>
         </VStack>
         <form onSubmit={formik.handleSubmit} className="w-full">
@@ -211,14 +214,12 @@ const Demo = () => {
               Access {result.roles[0].granted ? 'Granted' : 'Denied'}
             </Text>
 
-            <Text>
-              Data sent:
-            </Text>
+            <Text>Data sent:</Text>
             <pre
-              // style={{
-              //   fontFamily: 'mPlus1Code',
-              //   fontWeight: '400',
-              // }}
+            // style={{
+            //   fontFamily: 'mPlus1Code',
+            //   fontWeight: '400',
+            // }}
             >
               {JSON.stringify(
                 {

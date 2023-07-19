@@ -6,7 +6,13 @@ const NonLoggedInView = () => {
   const { openConnectModal } = useConnectModal();
 
   return (
-    <Flex direction={'column'} alignItems="flex-start" maxW="454px" gap={5} mx="40px">
+    <Flex
+      direction={'column'}
+      alignItems="flex-start"
+      maxW="454px"
+      gap={5}
+      mx="40px"
+    >
       <Text fontSize="3xl">Token Gate Demo Website</Text>
       <Text fontSize="lg">
         Collab.Land offers a token gating feature that allows you to restrict
