@@ -8,7 +8,7 @@ import {
 import '@rainbow-me/rainbowkit/styles.css';
 import { TokenGateProvider } from 'collabland-tokengate-react-context';
 import type { AppProps } from 'next/app';
-import { M_PLUS_1_Code, Open_Sans } from 'next/font/google';
+import { Inconsolata, M_PLUS_1_Code, Oxygen } from 'next/font/google';
 import { WagmiConfig, configureChains, createConfig } from 'wagmi';
 import {
   arbitrum,
@@ -68,12 +68,25 @@ const styles = {
   }),
 };
 
-const openSans = Open_Sans({ subsets: ['latin'] });
-const mPlus1Code = M_PLUS_1_Code({ subsets: ['latin'] });
+const oxygen = Oxygen({
+  subsets: ['latin'],
+  weight: '400',
+});
+const mPlus1Code = M_PLUS_1_Code({
+  subsets: ['latin'],
+  weight: '400',
+});
+const inconsolata = Inconsolata({
+  subsets: ['latin'],
+  weight: '400',
+});
+
 const fonts = {
-  openSans: openSans.style.fontFamily,
+  oxygen: oxygen.style.fontFamily,
   mPlus1Code: mPlus1Code.style.fontFamily,
+  inconsolata: inconsolata.style.fontFamily,
 };
+
 export const theme = extendTheme({ colors, styles, fonts });
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -83,7 +96,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <WagmiConfig config={wagmiConfig}>
           <RainbowKitProvider chains={chains} theme={darkTheme()}>
             <TokenGateProvider>
-              <div className={openSans.className}>
+              <div className={oxygen.className}>
                 <Component {...pageProps} />
               </div>
             </TokenGateProvider>

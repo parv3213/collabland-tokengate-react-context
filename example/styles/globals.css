@@ -6,7 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: openSans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  font-family: oxygen, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   position: relative;
 }
@@ -17,11 +17,19 @@ body::before {
   bottom: 0;
   left: 0;
   background: url('/background.svg') no-repeat;
-  background-position: 0px 250px;
+  background-position: 0px 150px;
   width: 100%;
   height: 100%;
   background-size: cover;
   opacity: 0.5;
+}
+
+input{
+  font-family: var(--chakra-fonts-mPlus1Code), inconsolata, monospace, sans-serif!important;
+}
+
+pre{
+  font-family: var(--chakra-fonts-mPlus1Code), inconsolata, monospace, sans-serif!important;
 }
 
 a {

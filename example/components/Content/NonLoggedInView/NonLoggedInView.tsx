@@ -6,14 +6,21 @@ const NonLoggedInView = () => {
   const { openConnectModal } = useConnectModal();
 
   return (
-    <Flex direction={'column'} alignItems="flex-start" maxW="424px" gap={5}>
+    <Flex
+      direction={'column'}
+      alignItems="flex-start"
+      maxW="454px"
+      gap={5}
+      mx="40px"
+    >
       <Text fontSize="3xl">Token Gate Demo Website</Text>
-      <Text fontSize="xl">
+      <Text fontSize="lg">
         Collab.Land offers a token gating feature that allows you to restrict
         access to elements or pages of your site based on ownership of certain
         blockchain assets.
       </Text>
-      <Text fontSize="xl">
+      <Text fontSize="lg">
+        The&nbsp;
         <Link
           className="underline"
           href="https://www.npmjs.com/package/collabland-tokengate-react-context"
@@ -46,7 +53,7 @@ const NonLoggedInView = () => {
         onClick={openConnectModal}
         color="general.link"
         fontSize={'2xl'}
-        fontWeight={'light'}
+        fontWeight={'normal'}
       >
         Connect your wallet to view the demo
       </Button>
