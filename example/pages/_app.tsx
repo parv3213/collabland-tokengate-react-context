@@ -8,7 +8,7 @@ import {
 import '@rainbow-me/rainbowkit/styles.css';
 import { TokenGateProvider } from 'collabland-tokengate-react-context';
 import type { AppProps } from 'next/app';
-import { M_PLUS_1_Code, Oxygen, Inconsolata } from '@next/font/google';
+import { Inconsolata, M_PLUS_1_Code, Oxygen } from 'next/font/google';
 import { WagmiConfig, configureChains, createConfig } from 'wagmi';
 import {
   arbitrum,
@@ -68,20 +68,18 @@ const styles = {
   }),
 };
 
-const oxygen = Oxygen({ 
-  subsets: ['latin'], 
-  weight: '400',
-
-});
-const mPlus1Code = M_PLUS_1_Code({ 
-  subsets: ['latin'], 
+const oxygen = Oxygen({
+  subsets: ['latin'],
   weight: '400',
 });
-const inconsolata = Inconsolata({ 
-  subsets: ['latin'], 
+const mPlus1Code = M_PLUS_1_Code({
+  subsets: ['latin'],
   weight: '400',
 });
-
+const inconsolata = Inconsolata({
+  subsets: ['latin'],
+  weight: '400',
+});
 
 const fonts = {
   oxygen: oxygen.style.fontFamily,
